@@ -2,16 +2,18 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 // Initialize Express app
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 // Middleware
 app.use(bodyParser.json());
 
 // MongoDB connection string (replace with your own credentials)
-const MONGO_URI = 'mongodb+srv://ronitban070:Marine737$@tagopool.ufqic.mongodb.net/';
+const MONGO_URI = process.env.MONGO_URI;
 
 // Connect to MongoDB
 let db;
